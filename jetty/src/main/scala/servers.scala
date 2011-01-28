@@ -54,7 +54,7 @@ trait Server extends ContextBuilder with unfiltered.util.RunnableServer { self =
   underlying.setHandler(handlers)
 
   private def contextHandler(path: String) = {
-    val ctx = new ServletContextHandler(handlers, path, false, false)
+    val ctx = new ServletContextHandler(handlers, path, true, false)
     val holder = new ServletHolder(classOf[org.eclipse.jetty.servlet.DefaultServlet])
     holder.setName("Servlet %s" format counter.incrementAndGet)
     ctx.addServlet(holder, "/")
