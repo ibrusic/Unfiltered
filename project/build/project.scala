@@ -75,15 +75,15 @@ class Unfiltered(info: ProjectInfo) extends ParentProject(info) with posterous.P
 
   lazy val scalate = project("scalate", "Unfiltered Scalate",
       new UnfilteredModule(_) with Only28AndUp with IntegrationTesting {
-    val scalateLibs = "org.fusesource.scalate" % "scalate-core" % "1.3.2"
-    val scalateUtils = "org.fusesource.scalate" % "scalate-util" % "1.3.2" % "test"
+    val scalateLibs = "org.fusesource.scalate" % "scalate-core" % "1.4.0"
+    val scalateUtils = "org.fusesource.scalate" % "scalate-util" % "1.4.0" % "test"
     val scalaCompiler = "org.scala-lang" % "scala-compiler" % buildScalaVersion % "test"
     val mockito = "org.mockito" % "mockito-core" % "1.8.5" % "test"
     override def repositories = Set(ScalaToolsSnapshots)
   }, library)
   /** websockets */
   lazy val websockets = project("websockets", "Unfiltered Websockets",
-    new UnfilteredModule(_), netty_server)
+    new UnfilteredModule(_), netty)
 
   /** oauth */
   lazy val oauth = project("oauth", "Unfiltered OAuth",
